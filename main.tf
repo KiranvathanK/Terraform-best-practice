@@ -17,3 +17,15 @@ resource "aws_instance" "e2" {
     on_failure = continue
   }
 }
+
+module "website_s3_bucket_2" {
+  source = "./modules/aws-s3-static-website-bucket"
+
+  bucket_name = "clickittech-terraform-best-practices-bucket-2"
+
+  tags = {
+    Terraform   = "true"
+    Environment = "test"
+  }
+
+}
